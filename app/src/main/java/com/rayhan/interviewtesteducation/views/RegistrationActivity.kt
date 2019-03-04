@@ -6,23 +6,15 @@ import android.os.Bundle
 import android.widget.Toast
 import com.rayhan.interviewtesteducation.R
 import com.rayhan.interviewtesteducation.database.AppDatabase
+import com.rayhan.interviewtesteducation.database.DataRepository
 import com.rayhan.interviewtesteducation.models.Student
-import kotlinx.android.synthetic.main.activity_student_registration.*
+import kotlinx.android.synthetic.main.activity_registration.*
 
-class StudentRegistrationActivity : AppCompatActivity() {
-
-    private val DATABASE_NAME = "student-database"
+class RegistrationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_student_registration)
-
-
-        val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, DATABASE_NAME)
-            .allowMainThreadQueries()
-            .build()
-
-        Toast.makeText(applicationContext, db.studentDao().getAll().size.toString(), Toast.LENGTH_LONG).show()
+        setContentView(R.layout.activity_registration)
 
 
         btn_done.setOnClickListener {
@@ -41,18 +33,17 @@ class StudentRegistrationActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "please enter address", Toast.LENGTH_LONG).show()
                 else -> {
 
-                    val student = Student()
+                    val student = Student().apply {
+                        name = et_student_name.text.toString()
+                        bloodGroup = et_student_name.text.toString()
+                        contactNumber = et_student_name.text.toString()
+                        fatherName = et_student_name.text.toString()
+                        motherName = et_student_name.text.toString()
+                        address = et_student_name.text.toString()
+                    }
 
-                    student.name = et_student_name.text.toString()
-                    student.bloodGroup = et_student_name.text.toString()
-                    student.contactNumber = et_student_name.text.toString()
-                    student.fatherName = et_student_name.text.toString()
-                    student.motherName = et_student_name.text.toString()
-                    student.address = et_student_name.text.toString()
-
-                    db.studentDao().insert(student)
+                    DataRepository.insertStudent(applicationContext, student)
                 }
-
             }
         }
 

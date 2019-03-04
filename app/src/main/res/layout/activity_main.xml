@@ -13,4 +13,8 @@
             android:text="Registration"
             android:layout_width="match_parent"
             android:layout_height="100dp" android:id="@+id/tv_registration"/>
+    <TextView
+            android:text="Admin Login"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" android:id="@+id/tv_admin_login"/>
 </LinearLayout>
