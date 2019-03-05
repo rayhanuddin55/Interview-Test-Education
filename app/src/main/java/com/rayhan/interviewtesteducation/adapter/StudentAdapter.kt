@@ -1,16 +1,23 @@
 package com.rayhan.interviewtesteducation.adapter
 
 import android.content.Context
+import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.rayhan.interviewtesteducation.R
+import com.rayhan.interviewtesteducation.listeners.ListItemClick
 import com.rayhan.interviewtesteducation.models.Student
 import kotlinx.android.synthetic.main.item_student.view.*
 
-class StudentAdapter(private val context: Context, private val items: List<Student>) :
+class StudentAdapter(
+    private val context: Context,
+    private val items: List<Student>,
+    private val listItemClick: ListItemClick<Student>
+) :
     RecyclerView.Adapter<StudentAdapter.ItemView>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ItemView {
@@ -26,6 +33,12 @@ class StudentAdapter(private val context: Context, private val items: List<Stude
     override fun onBindViewHolder(holder: ItemView, position: Int) {
 
         holder.tvName.text = items[position].name
+
+        holder.ivStudent.setImageURI(Uri.parse(items[position].photoUri))
+
+        holder.view.setOnClickListener {
+            listItemClick.onListitemClick(items[position])
+        }
     }
 
     override fun getItemCount(): Int {
@@ -33,6 +46,8 @@ class StudentAdapter(private val context: Context, private val items: List<Stude
     }
 
     inner class ItemView(view: View) : RecyclerView.ViewHolder(view) {
+        val view: View = view
         val tvName: TextView = view.tv_name
+        val ivStudent: ImageView = view.iv_student
     }
 }

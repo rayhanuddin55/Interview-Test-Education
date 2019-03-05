@@ -3,6 +3,7 @@ package com.rayhan.interviewtesteducation.models
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import android.net.Uri
 
 @Entity
 class Student {
@@ -32,5 +33,8 @@ class Student {
 
     @ColumnInfo(name = "address")
     var address: String? = null
+
+    @ColumnInfo(name = "photo_uri")
+    var photoUri: String? = null
 
 }
