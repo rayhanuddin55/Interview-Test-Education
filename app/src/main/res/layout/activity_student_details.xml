@@ -7,12 +7,30 @@
         android:layout_height="match_parent"
         tools:context=".views.StudentDetailsActivity" android:orientation="vertical">
 
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/tv_name"/>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp" android:id="@+id/top">
+
+        <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent" app:srcCompat="@drawable/ic_left_black_24dp"
+                android:id="@+id/iv_back" android:padding="10dp"/>
+        <TextView
+                android:text="Student Details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView" android:layout_centerInParent="true"
+                android:textColor="@color/colorText" android:textStyle="bold" android:textSize="16sp"/>
+        <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp" android:id="@+id/view" android:layout_alignParentBottom="true"
+                android:background="@color/colorDivider"/>
+    </RelativeLayout>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher" android:id="@+id/iv_student"
     />
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tv_name"/>
 </LinearLayout>

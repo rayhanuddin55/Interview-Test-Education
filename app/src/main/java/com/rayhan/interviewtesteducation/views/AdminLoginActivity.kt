@@ -22,6 +22,8 @@ class AdminLoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_login)
 
+        et_email.setSelection(et_email.text.length)
+
         initClickListeners()
     }
 

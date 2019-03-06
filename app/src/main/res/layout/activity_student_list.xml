@@ -5,8 +5,26 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".views.StudentListActivity">
+        tools:context=".views.StudentListActivity" android:orientation="vertical">
 
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp" android:id="@+id/top">
+
+        <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent" app:srcCompat="@drawable/ic_left_black_24dp"
+                android:id="@+id/iv_back" android:padding="10dp"/>
+        <TextView
+                android:text="Students"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView" android:layout_centerInParent="true"
+                android:textColor="@color/colorText" android:textStyle="bold" android:textSize="16sp"/>
+        <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp" android:id="@+id/view" android:layout_alignParentBottom="true"
+                android:background="@color/colorDivider"/>
+    </RelativeLayout>
     <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:id="@+id/recycler_view"/>

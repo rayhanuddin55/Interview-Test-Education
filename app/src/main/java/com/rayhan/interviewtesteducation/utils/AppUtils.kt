@@ -2,6 +2,7 @@ package com.rayhan.interviewtesteducation.utils
 
 import android.app.Activity
 import android.app.AlertDialog
+import java.text.DateFormatSymbols
 
 object AppUtils {
 
@@ -12,5 +13,9 @@ object AppUtils {
             dialog.dismiss()
         }
         dialog.show()
+    }
+
+    fun getMonth(month: Int): String {
+        return DateFormatSymbols().months[month]
     }
 }

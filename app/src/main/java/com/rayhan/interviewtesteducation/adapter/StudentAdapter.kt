@@ -33,8 +33,13 @@ class StudentAdapter(
     override fun onBindViewHolder(holder: ItemView, position: Int) {
 
         holder.tvName.text = items[position].name
+        holder.tvContact.text = items[position].contactNumber
+        holder.tvBloodGroup.text = items[position].bloodGroup
 
-        holder.ivStudent.setImageURI(Uri.parse(items[position].photoUri))
+        if (items[position].photoUri != null) {
+            holder.ivStudent.setImageURI(Uri.parse(items[position].photoUri))
+        }
+
 
         holder.view.setOnClickListener {
             listItemClick.onListitemClick(items[position])
@@ -45,9 +50,10 @@ class StudentAdapter(
         return items.size
     }
 
-    inner class ItemView(view: View) : RecyclerView.ViewHolder(view) {
-        val view: View = view
+    inner class ItemView(val view: View) : RecyclerView.ViewHolder(view) {
         val tvName: TextView = view.tv_name
+        val tvContact: TextView = view.tv_contact
+        val tvBloodGroup: TextView = view.tv_blood
         val ivStudent: ImageView = view.iv_student
     }
 }

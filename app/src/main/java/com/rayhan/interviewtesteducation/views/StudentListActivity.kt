@@ -24,6 +24,8 @@ class StudentListActivity : AppCompatActivity(), ListItemClick<Student> {
         studentsAdapter = StudentAdapter(applicationContext, getStudentList(), this)
 
         initRecyclerView()
+
+        iv_back.setOnClickListener { onBackPressed() }
     }
 
     override fun onListitemClick(item: Student) {

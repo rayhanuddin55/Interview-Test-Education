@@ -28,6 +28,8 @@ class StudentDetailsActivity : AppCompatActivity() {
 
         getStudentFromDatabase()
         setValues()
+
+        iv_back.setOnClickListener { onBackPressed() }
     }
 
     private fun setValues() {
