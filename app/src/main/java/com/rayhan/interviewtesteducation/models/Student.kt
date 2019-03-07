@@ -13,6 +13,9 @@ class Student {
     @ColumnInfo(name = "name")
     var name: String? = null
 
+    @ColumnInfo(name = "class_name")
+    var className: String? = null
+
     @ColumnInfo(name = "dob")
     var dob: String? = null
 

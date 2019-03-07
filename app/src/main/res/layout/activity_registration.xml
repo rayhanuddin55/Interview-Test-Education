@@ -74,6 +74,12 @@
                     android:background="@drawable/bg_edit_text" android:layout_marginTop="10dp"
                     android:hint="Gender"
                     android:textColor="@color/colorText"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/tv_class" android:padding="10dp"
+                    android:background="@drawable/bg_edit_text" android:layout_marginTop="10dp"
+                    android:hint="Select your class"
+                    android:textColor="@color/colorText"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

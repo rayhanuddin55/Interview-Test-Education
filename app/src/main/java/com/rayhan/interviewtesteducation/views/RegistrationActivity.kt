@@ -27,6 +27,7 @@ class RegistrationActivity : AppCompatActivity() {
 
     private var selectedPhotoUri: Uri? = null
     private var selectedDob: String? = null
+    private var selectedClass: String? = null
     private var selectedGender: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +67,42 @@ class RegistrationActivity : AppCompatActivity() {
             popupMenu.show()
         }
 
+        tv_class.setOnClickListener {
+            val popupMenu = PopupMenu(this, tv_gender)
+            popupMenu.menu.add(0, 0, 0, "Six")
+            popupMenu.menu.add(0, 1, 0, "Seven")
+            popupMenu.menu.add(0, 2, 0, "Eight")
+            popupMenu.menu.add(0, 3, 0, "Nine")
+            popupMenu.menu.add(0, 4, 0, "Ten")
+
+            popupMenu.setOnMenuItemClickListener {
+                when (it.itemId) {
+                    0 -> {
+                        tv_class.text = "Six"
+                        selectedClass = "Six"
+                    }
+                    1 -> {
+                        tv_class.text = "Seven"
+                        selectedClass = "Seven"
+                    }
+                    2 -> {
+                        tv_class.text = "Eight"
+                        selectedClass = "Eight"
+                    }
+                    3 -> {
+                        tv_class.text = "Nine"
+                        selectedClass = "Nine"
+                    }
+                    4 -> {
+                        tv_class.text = "Ten"
+                        selectedClass = "Ten"
+                    }
+                }
+                true
+            }
+            popupMenu.show()
+        }
+
         btn_done.setOnClickListener {
             when {
                 et_student_name.text.toString().isBlank() ->
@@ -74,6 +111,8 @@ class RegistrationActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "please select date of birth", Toast.LENGTH_LONG).show()
                 selectedGender == null ->
                     Toast.makeText(applicationContext, "please select you gender", Toast.LENGTH_LONG).show()
+                selectedClass == null ->
+                    Toast.makeText(applicationContext, "please select class", Toast.LENGTH_LONG).show()
                 et_blood_group.text.toString().isBlank() ->
                     Toast.makeText(applicationContext, "please enter student's blood group", Toast.LENGTH_LONG).show()
                 et_contact_number.text.toString().isBlank() ->
@@ -102,6 +141,7 @@ class RegistrationActivity : AppCompatActivity() {
             val student = Student().apply {
                 name = et_student_name.text.toString()
                 dob = selectedDob
+                className = selectedClass
                 bloodGroup = et_blood_group.text.toString()
                 contactNumber = et_contact_number.text.toString()
                 fatherName = et_father_name.text.toString()
@@ -175,7 +215,7 @@ class RegistrationActivity : AppCompatActivity() {
             Calendar.getInstance().get(Calendar.MONTH),
             Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
         )
-        dialogDatePicker.datePicker.minDate = System.currentTimeMillis()
+        dialogDatePicker.datePicker.maxDate = System.currentTimeMillis()
         dialogDatePicker.show()
     }
 }

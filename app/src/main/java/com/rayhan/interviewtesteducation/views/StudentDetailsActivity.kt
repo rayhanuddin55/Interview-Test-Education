@@ -1,7 +1,5 @@
 package com.rayhan.interviewtesteducation.views
 
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.LiveData
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -17,7 +15,6 @@ class StudentDetailsActivity : AppCompatActivity() {
     }
 
     var studentId: Int? = null
-
     var studentObj: Student? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +31,18 @@ class StudentDetailsActivity : AppCompatActivity() {
 
     private fun setValues() {
         studentObj?.let {
+            it.photoUri?.let { uri ->
+                iv_student.setImageURI(Uri.parse(uri))
+            }
             tv_name.text = it.name
-            iv_student.setImageURI(Uri.parse(it.photoUri.toString()))
+            tv_dob.text = "DOB : ${it.dob}"
+            tv_class.text = "Class : ${it.className}"
+            tv_gender.text = "Gender : ${it.sex}"
+            tv_blood.text = "Blood group : ${it.bloodGroup}"
+            tv_contact.text = "Contact number : ${it.contactNumber}"
+            tv_father_name.text = "Father's name : ${it.fatherName}"
+            tv_mother_name.text = "Mother's name : ${it.motherName}"
+            tv_address.text = "Address : ${it.address}"
         }
     }
 

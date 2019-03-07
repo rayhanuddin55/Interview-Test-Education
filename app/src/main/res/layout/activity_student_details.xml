@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".views.StudentDetailsActivity" android:orientation="vertical">
+        tools:context=".views.StudentDetailsActivity" android:orientation="vertical"
+        android:background="@android:color/white">
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -25,12 +26,77 @@
                 android:layout_height="1dp" android:id="@+id/view" android:layout_alignParentBottom="true"
                 android:background="@color/colorDivider"/>
     </RelativeLayout>
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher" android:id="@+id/iv_student"
-    />
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/tv_name"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="vertical" android:gravity="center_horizontal">
+            <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp" android:src="@drawable/ic_profile" android:id="@+id/iv_student"
+            />
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:paddingStart="25dp" android:paddingBottom="25dp"
+                    android:paddingEnd="25dp">
+                <TextView
+                        android:text="name "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tv_name"
+                        android:textColor="@color/colorText" android:textStyle="bold" android:textSize="16sp"
+                        android:paddingStart="15dp" android:paddingBottom="10dp" android:paddingTop="10dp"
+                        android:paddingEnd="15dp" android:gravity="center"/>
+                <TextView
+                        android:text="date of birth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tv_dob"
+                        android:textColor="@color/colorText" android:paddingStart="15dp" android:paddingBottom="10dp"
+                        android:paddingTop="10dp" android:paddingEnd="15dp"/>
+                <TextView
+                        android:text="class"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tv_class"
+                        android:textColor="@color/colorText" android:paddingStart="15dp" android:paddingBottom="10dp"
+                        android:paddingTop="10dp" android:paddingEnd="15dp"/>
+                <TextView
+                        android:text="gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tv_gender"
+                        android:textColor="@color/colorText" android:paddingStart="15dp" android:paddingBottom="10dp"
+                        android:paddingTop="10dp" android:paddingEnd="15dp"/>
+                <TextView
+                        android:text="blood group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tv_blood"
+                        android:textColor="@color/colorText" android:paddingStart="15dp" android:paddingBottom="10dp"
+                        android:paddingTop="10dp" android:paddingEnd="15dp"/>
+                <TextView
+                        android:text="contact number "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tv_contact"
+                        android:textColor="@color/colorText" android:paddingStart="15dp" android:paddingBottom="10dp"
+                        android:paddingTop="10dp" android:paddingEnd="15dp"/>
+                <TextView
+                        android:text="father name "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tv_father_name"
+                        android:textColor="@color/colorText" android:paddingStart="15dp" android:paddingBottom="10dp"
+                        android:paddingTop="10dp" android:paddingEnd="15dp"/>
+                <TextView
+                        android:text="mother name "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tv_mother_name"
+                        android:textColor="@color/colorText" android:paddingStart="15dp" android:paddingBottom="10dp"
+                        android:paddingTop="10dp" android:paddingEnd="15dp"/>
+                <TextView
+                        android:text="Address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tv_address"
+                        android:textColor="@color/colorText" android:paddingStart="15dp" android:paddingBottom="10dp"
+                        android:paddingTop="10dp" android:paddingEnd="15dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
