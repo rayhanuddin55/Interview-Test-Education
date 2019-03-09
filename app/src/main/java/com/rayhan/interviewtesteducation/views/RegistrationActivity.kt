@@ -142,6 +142,7 @@ class RegistrationActivity : AppCompatActivity() {
                 name = et_student_name.text.toString()
                 dob = selectedDob
                 className = selectedClass
+                sex = selectedGender
                 bloodGroup = et_blood_group.text.toString()
                 contactNumber = et_contact_number.text.toString()
                 fatherName = et_father_name.text.toString()
